@@ -6,6 +6,7 @@ public class Player : MonoBehaviour
 {
     private Rigidbody rb;
     public float speed;
+    public Transform checkpoint;
     // Start is called before the first frame update
     void Start()
     {
@@ -28,7 +29,11 @@ public class Player : MonoBehaviour
     {
         if (collision.transform.tag == "Asteroids")
         {
-            Destroy(gameObject);
+            Destroy(collision.gameObject);
+            GameManager.gm.lives -= 1;
+            GameManager.gm.Reset();
+            transform.position = checkpoint.position;
+            //Destroy(gameObject);
         }
     }
 }
