@@ -34,6 +34,7 @@ public class Player : MonoBehaviour
             GameManager.gm.Reset();
             transform.position = checkpoint.position;
             //Destroy(gameObject);
+            Spawner.ins.DestroyAllAsteroids();
         }
     }
 }

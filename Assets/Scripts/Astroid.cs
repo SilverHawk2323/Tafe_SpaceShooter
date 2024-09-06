@@ -33,8 +33,14 @@ public class Astroid : MonoBehaviour
         rb.AddForce(Vector3.back*Time.deltaTime * speed);
     }
 
+    public void OnDestroy()
+    {
+        Spawner.ins.DeactivateAsteroid(gameObject);
+    }
+
     public void Reset()
     {
+        
         Destroy(gameObject);
     }
 }
