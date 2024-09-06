@@ -823,7 +823,8 @@ MonoBehaviour:
   pointA: {fileID: 1612072957}
   pointB: {fileID: 1179139259}
   timer: 0
-  resetTime: 3
+  resetTime: 1
+  activeAsteroids: []
 --- !u!1 &1039042214
 GameObject:
   m_ObjectHideFlags: 0
