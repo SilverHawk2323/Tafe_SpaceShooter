@@ -9,19 +9,21 @@ using System.Linq;
 public class GameManager : MonoBehaviour
 {
     public Text timerText;
+    public Text livesText;
     float timer;
 
     public static GameManager gm;
     public bool playing;
-    public int lives = 3;
+    public int lives;
     public GameObject astriod;
-
+        
     // Start is called before the first frame update
     void Start()
     {
         gm = this;
         timer = 0;
         playing = true;
+        lives = 3;
     }
 
     // Update is called once per frame
@@ -31,6 +33,7 @@ public class GameManager : MonoBehaviour
         {
             timer += Time.deltaTime;
             timerText.text = "Time: " + Mathf.Round(timer * 100) / 100;
+            livesText.text = "Lives: " + lives;
         }
     }
 

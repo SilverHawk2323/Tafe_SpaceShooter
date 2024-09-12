@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Astroids
   - Asteroids
+  - Asteroid Rob
+  - Asteroid Bob
+  - Asteroid Gob
   layers:
   - Default
   - TransparentFX
