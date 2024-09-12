@@ -38,6 +38,10 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(GameManager.gm.playing == false)
+        {
+            return;
+        }
         Vector3 vel;
 
         vel = transform.right * Input.GetAxisRaw("Horizontal");

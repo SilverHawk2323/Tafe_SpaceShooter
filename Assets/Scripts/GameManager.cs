@@ -10,7 +10,8 @@ public class GameManager : MonoBehaviour
 {
     public Text timerText;
     public Text livesText;
-    float timer;
+    public float timer;
+    public GameObject gameOverScreen;
 
     public static GameManager gm;
     public bool playing;
@@ -20,6 +21,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        gameOverScreen.SetActive(false);
         gm = this;
         timer = 0;
         playing = true;
@@ -29,6 +31,10 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!playing)
+        {
+            return;
+        }
         if (playing)
         {
             timer += Time.deltaTime;
@@ -43,7 +49,8 @@ public class GameManager : MonoBehaviour
         if (lives == 0 )
         {
             playing = false;
-            SceneManager.LoadScene(0);
+            gameOverScreen.SetActive(true);
+            //SceneManager.LoadScene(0);
         }
         else
         {

@@ -27,7 +27,11 @@ public class Spawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (GameManager.gm.playing == false)
+        {
+            return;
+        }
+
         timer -= Time.deltaTime;
         if(timer <= 0)
         {

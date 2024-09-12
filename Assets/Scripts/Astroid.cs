@@ -30,6 +30,10 @@ public class Astroid : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (GameManager.gm.playing == false)
+        {
+            return;
+        }
         rb.AddForce(Vector3.back*Time.deltaTime * speed);
     }
 
