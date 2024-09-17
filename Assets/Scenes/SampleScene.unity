@@ -197,7 +197,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   names: 0
-  speed: 3
+  speed: 2000
   checkpoint: {fileID: 1758507506}
 --- !u!1 &37421140 stripped
 GameObject:

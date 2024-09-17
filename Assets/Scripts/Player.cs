@@ -44,8 +44,8 @@ public class Player : MonoBehaviour
         }
         Vector3 vel;
 
-        vel = transform.right * Input.GetAxisRaw("Horizontal");
-        vel += transform.forward * Input.GetAxisRaw("Vertical");
+        vel = transform.right * Input.GetAxisRaw("Horizontal") * Time.deltaTime;
+        vel += transform.forward * Input.GetAxisRaw("Vertical") * Time.deltaTime;
 
 
         rb.AddForce(vel * speed);
