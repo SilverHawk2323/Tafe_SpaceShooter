@@ -28,13 +28,17 @@ public class Player : MonoBehaviour
     private Rigidbody rb;
     public float speed;
     public Transform checkpoint;
+    public Transform firepoint;
+    public GameObject[] bullets;
+    public GameObject selectedBullet;
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent <Rigidbody>();
         names = Character.Rob;
+        SwitchBullets();
     }
-
+    
     // Update is called once per frame
     void Update()
     {
@@ -43,24 +47,19 @@ public class Player : MonoBehaviour
             return;
         }
         Vector3 vel;
-
-        vel = transform.right * Input.GetAxisRaw("Horizontal") * Time.deltaTime;
-        vel += transform.forward * Input.GetAxisRaw("Vertical") * Time.deltaTime;
-
-
-        rb.AddForce(vel * speed);
+        
         if (Input.GetKeyDown(KeyCode.Q))
         {
-            if(names == Character.Gob)
+            if (names == Character.Gob)
             {
                 names = Character.Rob;
-                
             }
             else
             {
                 names = Character.Bob;
             }
             Debug.Log(names);
+            SwitchBullets();
         }
         if (Input.GetKeyDown(KeyCode.E))
         {
@@ -73,8 +72,27 @@ public class Player : MonoBehaviour
                 names = Character.Gob;
             }
             Debug.Log(names);
+            SwitchBullets();
         }
+
+        vel = transform.right * Input.GetAxisRaw("Horizontal") * Time.deltaTime;
+        vel += transform.forward * Input.GetAxisRaw("Vertical") * Time.deltaTime;
+
+        if (Input.GetButtonDown("Shoot") && names != Character.Gob) 
+        {
+            Fire();
+        }
+        if (Input.GetButton("Shoot") && names == Character.Gob)
+        {
+            Fire();
+        }
+                
+
+        rb.AddForce(vel * speed);
+        
     }
+
+    
 
     private void OnCollisionEnter(Collision collision)
     {
@@ -92,6 +110,11 @@ public class Player : MonoBehaviour
         }
     }
 
+    private void Fire()
+    {
+        Instantiate(selectedBullet, firepoint.position, Quaternion.identity);
+    }
+
     private void Death(Collision collision)
     {
         Destroy(collision.gameObject);
@@ -100,5 +123,26 @@ public class Player : MonoBehaviour
         Spawner.ins.DestroyAllAsteroids();
         transform.position = checkpoint.position;
         //Destroy(gameObject);
+    }
+
+    
+
+    private void SwitchBullets()
+    {
+        switch (names)
+        {
+            case Character.Rob:
+                selectedBullet = bullets[0];
+                break;
+            case Character.Bob:
+                selectedBullet = bullets[1];
+                break;
+            case Character.Gob:
+                selectedBullet = bullets[2];
+                break;
+            default:
+                Debug.LogWarning("Couldn't Find Bullet");
+                break;
+        }
     }
 }
