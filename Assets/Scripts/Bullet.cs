@@ -29,10 +29,12 @@ public abstract class Bullet : MonoBehaviour
     [SerializeField] protected float speed;
     [SerializeField] protected GameObject explosion;
     protected Rigidbody rb;
+    public Player player;
 
     public void Start()
     {
         rb = GetComponent<Rigidbody>();
+        player = GameManager.gm.GetPlayerRef();
     }
     private void Update()
     {
@@ -43,7 +45,8 @@ public abstract class Bullet : MonoBehaviour
     public abstract void Hit(Collision other);
     protected void OnCollisionEnter(Collision collision)
     {
-        Destroy(collision.gameObject);
+       
+        //Destroy(collision.gameObject);
         Hit(collision);
     }
     

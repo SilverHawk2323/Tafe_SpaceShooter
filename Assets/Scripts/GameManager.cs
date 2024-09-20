@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     public Text livesText;
     public float timer;
     public GameObject gameOverScreen;
+    public Player player;
 
     public static GameManager gm;
     public bool playing;
@@ -62,4 +63,13 @@ public class GameManager : MonoBehaviour
 
     }
 
+    public void SetPlayerRef(Player player)
+    {
+        this.player = player;
+    }
+
+    public Player GetPlayerRef()
+    {
+        return player;
+    }
 }

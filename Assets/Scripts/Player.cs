@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 /* different characters to avoid different asteroids
@@ -31,12 +32,18 @@ public class Player : MonoBehaviour
     public Transform firepoint;
     public GameObject[] bullets;
     public GameObject selectedBullet;
+
+    private void Awake()
+    {
+        
+    }
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent <Rigidbody>();
         names = Character.Rob;
         SwitchBullets();
+        GameManager.gm.SetPlayerRef(this);
     }
     
     // Update is called once per frame
@@ -78,15 +85,12 @@ public class Player : MonoBehaviour
         vel = transform.right * Input.GetAxisRaw("Horizontal") * Time.deltaTime;
         vel += transform.forward * Input.GetAxisRaw("Vertical") * Time.deltaTime;
 
-        if (Input.GetButtonDown("Shoot") && names != Character.Gob) 
+        if (Input.GetButtonDown("Shoot")) //&& names != Character.Gob) 
         {
             Fire();
         }
-        if (Input.GetButton("Shoot") && names == Character.Gob)
-        {
-            Fire();
-        }
-                
+
+
 
         rb.AddForce(vel * speed);
         
@@ -113,6 +117,8 @@ public class Player : MonoBehaviour
     private void Fire()
     {
         Instantiate(selectedBullet, firepoint.position, Quaternion.identity);
+        
+
     }
 
     private void Death(Collision collision)

@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 9109355652009346159}
   serializedVersion: 2
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 1.6, y: -0.048000418, z: 4.120158}
+  m_LocalPosition: {x: -0.89283586, y: -0.05400158, z: -4.001653}
   m_LocalScale: {x: 0.36037308, y: 4.6969924, z: 0.36037308}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -124,6 +124,7 @@ MonoBehaviour:
   damage: 0
   speed: 10
   explosion: {fileID: 100008, guid: e16ef38aa341c8b4d908e6589cde39b6, type: 3}
+  player: {fileID: 0}
 --- !u!54 &-997158218207740091
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -147,7 +148,7 @@ Rigidbody:
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 1
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
-  m_Constraints: 100
+  m_Constraints: 126
   m_CollisionDetection: 0
