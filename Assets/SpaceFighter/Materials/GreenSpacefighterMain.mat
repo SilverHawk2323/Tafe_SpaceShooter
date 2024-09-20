@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: RedSpaceFighterWings
+  m_Name: GreenSpacefighterMain
   m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -27,7 +27,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _BumpMap:
-        m_Texture: {fileID: 2800000, guid: 6afeec291f60d0b42a9051fdcacd25ad, type: 3}
+        m_Texture: {fileID: 2800000, guid: ecec5e46bf89e5b4aab02e312208029c, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _DetailAlbedoMap:
@@ -43,15 +43,15 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _EmissionMap:
-        m_Texture: {fileID: 2800000, guid: cba26c0f536b4664c93b506683f037df, type: 3}
+        m_Texture: {fileID: 2800000, guid: 21628a1f71b2b034f8a182208e92d433, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 8515b21e30829e643ab74580e81194f7, type: 3}
+        m_Texture: {fileID: 2800000, guid: 79278e2cfa084ff479de4d7bbcdcf9d3, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
-        m_Texture: {fileID: 2800000, guid: 6cd763d96f3b0a74c9b1fd55017f5300, type: 3}
+        m_Texture: {fileID: 2800000, guid: 35c58d601d5092f4699946d94e8214e5, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _OcclusionMap:
@@ -81,6 +81,6 @@ Material:
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:
-    - _Color: {r: 0.7924528, g: 0, b: 0, a: 1}
+    - _Color: {r: 0, g: 1, b: 0.013665199, a: 1}
     - _EmissionColor: {r: 2, g: 2, b: 2, a: 1}
   m_BuildTextureStacks: []

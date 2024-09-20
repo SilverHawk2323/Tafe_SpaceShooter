@@ -47,7 +47,4 @@ public class Astroid : MonoBehaviour
         
         Destroy(gameObject);
     }
-
-    
-
 }

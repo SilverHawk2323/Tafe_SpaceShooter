@@ -32,6 +32,7 @@ public class Player : MonoBehaviour
     public Transform firepoint;
     public GameObject[] bullets;
     public GameObject selectedBullet;
+    public Renderer ship;
 
     private void Awake()
     {
@@ -44,6 +45,7 @@ public class Player : MonoBehaviour
         names = Character.Rob;
         SwitchBullets();
         GameManager.gm.SetPlayerRef(this);
+        ship = this.GetComponentInChildren<Renderer>();
     }
     
     // Update is called once per frame
