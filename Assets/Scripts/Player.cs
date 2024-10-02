@@ -102,7 +102,7 @@ public class Player : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        /*if (names == Character.Rob && collision.transform.tag == "Asteroid Rob")
+        if (names == Character.Rob && collision.transform.tag == "Asteroid Rob")
         {
             Death(collision);
         }
@@ -111,11 +111,6 @@ public class Player : MonoBehaviour
             Death(collision);
         }
         if (names == Character.Gob && collision.transform.tag == "Asteroid Gob")
-        {
-            Death(collision);
-        }*/
-
-        if (collision.transform.tag == "Asteroids")
         {
             Death(collision);
         }

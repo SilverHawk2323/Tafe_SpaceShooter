@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 6696467559660926294}
   m_Layer: 6
   m_Name: Astroid 3
-  m_TagString: Asteroids
+  m_TagString: Asteroid Gob
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
