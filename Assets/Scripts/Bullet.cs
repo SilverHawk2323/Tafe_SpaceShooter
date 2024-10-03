@@ -11,14 +11,6 @@ using UnityEngine;
  * The Hit explosion would be different and needs to be changed 
  * I could have it as a public variable and it's just different for each prefab
  * I need it so the explosion VFX also destroys the asteroids around it
- * A sphere trigger volume would
- * 
- * 
- * 
- * 
- * 
- * 
- * 
  */
 
 
@@ -39,11 +31,12 @@ public abstract class Bullet : MonoBehaviour
     private void Update()
     {
         rb.AddForce(transform.forward * speed);
+        Destroy(gameObject, 3f); 
     }
 
 
     public abstract void Hit(Collision other);
-    protected void OnCollisionEnter(Collision collision)
+    public void OnCollisionEnter(Collision collision)
     {
        
         //Destroy(collision.gameObject);

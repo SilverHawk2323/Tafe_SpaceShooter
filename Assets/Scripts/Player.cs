@@ -119,8 +119,6 @@ public class Player : MonoBehaviour
     private void Fire()
     {
         Instantiate(selectedBullet, firepoint.position, Quaternion.identity);
-        
-
     }
 
     private void Death(Collision collision)

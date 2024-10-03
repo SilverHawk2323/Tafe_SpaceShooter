@@ -13,10 +13,13 @@ public class ExplosiveBullet : Bullet
 
     public override void Hit(Collision other)
     {
+        Debug.Log("Hit" + other.gameObject);
         //An array for the asteroids caught in the explosion
         Collider[] collision;
         //spawns the VFX explosion
-        Instantiate(explosion, other.transform.position, Quaternion.identity);
+        GameObject vfx = Instantiate(explosion, other.transform.position, Quaternion.identity);
+        //destroys vfx
+        Destroy(vfx, 4f);
         //Gets all the asteroids caught in the explosion
         collision = Physics.OverlapSphere(transform.position, radiusCast, layermask);
 

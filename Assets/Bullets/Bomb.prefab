@@ -99,7 +99,7 @@ SphereCollider:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 128
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
@@ -122,6 +122,7 @@ MonoBehaviour:
   damage: 0
   speed: 100
   explosion: {fileID: 100012, guid: a905d8e5159ffeb46baa8d2a7624717f, type: 3}
+  player: {fileID: 0}
   radiusCast: 5
   layermask: 64
 --- !u!54 &8701780956055686588

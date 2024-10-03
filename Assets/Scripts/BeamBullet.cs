@@ -13,7 +13,8 @@ public class BeamBullet : Bullet
 
     public override void Hit(Collision other)
     {
-        Instantiate(explosion, other.transform.position, Quaternion.identity);
+        GameObject vfx = Instantiate(explosion, other.transform.position, Quaternion.identity);
+        Destroy(vfx, 3f);
         Destroy(other.gameObject);
     }
 
