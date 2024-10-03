@@ -26,7 +26,7 @@ public class Astroid : MonoBehaviour
         rot.z = Random.Range(-20f, 20f);
 
         rb.AddTorque(rot);
-        
+
         if (meshRenderer != null)
         {
             asteroidMaterials = meshRenderer.materials;
@@ -44,7 +44,7 @@ public class Astroid : MonoBehaviour
         {
             return;
         }
-        rb.AddForce(Vector3.back*Time.deltaTime * speed);
+        rb.AddForce(Vector3.back * Time.deltaTime * speed);
     }
 
     public void OnDestroy()
@@ -54,25 +54,31 @@ public class Astroid : MonoBehaviour
 
     public void Reset()
     {
-        
+
         Destroy(gameObject);
     }
 
     public IEnumerator DissolveCo()
     {
-        if(asteroidMaterials.Length > 0)
+        bool dissolveEffectRunning = false;
+        if (!dissolveEffectRunning)
         {
-            float counter = 0;
-
-            while (asteroidMaterials[0].GetFloat("_DissolveAmount") < 1)
+            dissolveEffectRunning = true;
+            if (asteroidMaterials.Length > 0)
             {
-                counter += dissolveRate;
-                for( int i = 0; i < asteroidMaterials.Length; i++ )
+                float counter = 0;
+
+                while (asteroidMaterials[0].GetFloat("_DissolveAmount") < 1)
                 {
-                    asteroidMaterials[i].SetFloat("_DissolveAmount", counter);
+                    counter += dissolveRate;
+                    for (int i = 0; i < asteroidMaterials.Length; i++)
+                    {
+                        asteroidMaterials[i].SetFloat("_DissolveAmount", counter);
+                    }
+                    yield return new WaitForSeconds(refreshRate);
                 }
-                yield return new WaitForSeconds(refreshRate);
             }
         }
+                    
     }
 }
