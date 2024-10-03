@@ -7,10 +7,15 @@ public class Astroid : MonoBehaviour
     public float topSpeed;
     public float bottomSpeed;
     float speed;
+    public MeshRenderer meshRenderer;
+    private Material[] asteroidMaterials;
+    public float dissolveRate = 0.0125f;
+    public float refreshRate = 0.025f;
     Rigidbody rb;
     // Start is called before the first frame update
     void Start()
     {
+        meshRenderer = GetComponent<MeshRenderer>();
         rb = GetComponent<Rigidbody>();
         speed = Random.Range(bottomSpeed, topSpeed);
 
@@ -21,6 +26,11 @@ public class Astroid : MonoBehaviour
         rot.z = Random.Range(-20f, 20f);
 
         rb.AddTorque(rot);
+        
+        if (meshRenderer != null)
+        {
+            asteroidMaterials = meshRenderer.materials;
+        }
 
         transform.localScale = Vector3.one * Random.Range(1f, 3f);
 
@@ -46,5 +56,23 @@ public class Astroid : MonoBehaviour
     {
         
         Destroy(gameObject);
+    }
+
+    public IEnumerator DissolveCo()
+    {
+        if(asteroidMaterials.Length > 0)
+        {
+            float counter = 0;
+
+            while (asteroidMaterials[0].GetFloat("_DissolveAmount") < 1)
+            {
+                counter += dissolveRate;
+                for( int i = 0; i < asteroidMaterials.Length; i++ )
+                {
+                    asteroidMaterials[i].SetFloat("_DissolveAmount", counter);
+                }
+                yield return new WaitForSeconds(refreshRate);
+            }
+        }
     }
 }
