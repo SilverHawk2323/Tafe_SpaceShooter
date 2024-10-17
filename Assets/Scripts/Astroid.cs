@@ -63,6 +63,7 @@ public class Astroid : MonoBehaviour
         bool dissolveEffectRunning = false;
         if (!dissolveEffectRunning)
         {
+            rb.constraints = RigidbodyConstraints.FreezePosition;
             dissolveEffectRunning = true;
             if (asteroidMaterials.Length > 0)
             {

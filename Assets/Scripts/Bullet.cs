@@ -17,7 +17,6 @@ using UnityEngine;
 
 public abstract class Bullet : MonoBehaviour
 {
-    [SerializeField] protected int damage;
     [SerializeField] protected float speed;
     [SerializeField] protected GameObject explosion;
     protected Rigidbody rb;
