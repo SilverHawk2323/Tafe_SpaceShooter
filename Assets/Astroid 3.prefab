@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 6055967457636834225}
   m_Layer: 6
   m_Name: Astroid 3
-  m_TagString: Asteroid Gob
+  m_TagString: Asteroids
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -149,6 +149,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   topSpeed: 150
   bottomSpeed: 80
+  meshRenderer: {fileID: 0}
+  dissolveRate: 0.0125
+  refreshRate: 0.025
 --- !u!64 &6055967457636834225
 MeshCollider:
   m_ObjectHideFlags: 0

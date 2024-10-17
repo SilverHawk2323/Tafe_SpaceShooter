@@ -19,6 +19,7 @@ public class ExplosiveBullet : Bullet
         Collider[] collision;
         //spawns the VFX explosion
         GameObject vfx = Instantiate(explosion, other.transform.position, Quaternion.identity);
+        vfx.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
         //destroys vfx
         Destroy(vfx, 4f);
         //Gets all the asteroids caught in the explosion

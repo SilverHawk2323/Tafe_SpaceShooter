@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour
     public float timer;
     public GameObject gameOverScreen;
     public Player player;
-
+    public GameObject laserAmmo;
     public static GameManager gm;
     public bool playing;
     public int lives;
@@ -27,6 +27,7 @@ public class GameManager : MonoBehaviour
         timer = 0;
         playing = true;
         lives = 3;
+        RefreshLives();
     }
 
     // Update is called once per frame
@@ -40,8 +41,10 @@ public class GameManager : MonoBehaviour
         {
             timer += Time.deltaTime;
             timerText.text = "Time: " + Mathf.Round(timer * 100) / 100;
-            livesText.text = "Lives: " + lives;
+            
         }
+
+
     }
 
     public void Reset()
@@ -61,6 +64,16 @@ public class GameManager : MonoBehaviour
         }
         
 
+    }
+
+    public void laserheatUI()
+    {
+        laserAmmo.GetComponent<Slider>().value -= Time.deltaTime;
+    }
+
+    public void RefreshLives()
+    {
+        livesText.text = "Lives: " + lives;
     }
 
     public void SetPlayerRef(Player player)

@@ -33,6 +33,8 @@ public class Player : MonoBehaviour
     public GameObject[] bullets;
     public GameObject selectedBullet;
     public Renderer ship;
+    private int bombAmmo;
+    private int maxBombAmmo = 3;
 
     private void Awake()
     {
@@ -46,6 +48,7 @@ public class Player : MonoBehaviour
         SwitchBullets();
         GameManager.gm.SetPlayerRef(this);
         ship = this.GetComponentInChildren<Renderer>();
+        bombAmmo = maxBombAmmo;
     }
     
     // Update is called once per frame
@@ -102,33 +105,34 @@ public class Player : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (names == Character.Rob && collision.transform.tag == "Asteroid Rob")
+        if(collision.transform.tag == "Asteroids")
         {
             Death(collision);
         }
-        if (names == Character.Bob && collision.transform.tag == "Asteroid Bob")
-        {
-            Death(collision);
-        }
-        if (names == Character.Gob && collision.transform.tag == "Asteroid Gob")
-        {
-            Death(collision);
-        }
+        
     }
 
     private void Fire()
     {
+        if (bombAmmo == 0 && names == Character.Bob)
+        {
+            return;
+        }
         Instantiate(selectedBullet, firepoint.position, Quaternion.identity);
+        if (selectedBullet == bullets[1])
+        {
+            bombAmmo -= 1;
+        }
     }
 
     private void Death(Collision collision)
     {
         Destroy(collision.gameObject);
         GameManager.gm.lives -= 1;
+        GameManager.gm.RefreshLives();
         GameManager.gm.Reset();
         Spawner.ins.DestroyAllAsteroids();
         transform.position = checkpoint.position;
-        //Destroy(gameObject);
     }
 
     
@@ -139,12 +143,16 @@ public class Player : MonoBehaviour
         {
             case Character.Rob:
                 selectedBullet = bullets[0];
+                GameManager.gm.laserAmmo.SetActive(false);
                 break;
             case Character.Bob:
                 selectedBullet = bullets[1];
+                GameManager.gm.laserAmmo.SetActive(false);
+                bombAmmo = maxBombAmmo;
                 break;
             case Character.Gob:
                 selectedBullet = bullets[2];
+                GameManager.gm.laserAmmo.SetActive(true);
                 break;
             default:
                 Debug.LogWarning("Couldn't Find Bullet");
