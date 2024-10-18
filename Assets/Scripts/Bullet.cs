@@ -29,7 +29,7 @@ public abstract class Bullet : MonoBehaviour
     }
     private void Update()
     {
-        rb.AddForce(transform.forward * speed);
+        rb.AddForce(transform.forward * speed * Time.deltaTime);
         Destroy(gameObject, 3f); 
     }
 

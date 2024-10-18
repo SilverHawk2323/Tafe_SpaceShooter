@@ -14,7 +14,7 @@ public class PlasmaBullet : Bullet
 
     private void Update()
     {
-        rb.AddForce(transform.up * speed);
+        rb.AddForce(transform.up * speed * Time.deltaTime);
         Destroy(gameObject, 3f);
     }
 

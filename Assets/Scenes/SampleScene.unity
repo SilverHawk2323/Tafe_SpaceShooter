@@ -198,7 +198,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 708a67c189bb9254f8fdeab706fa06ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  names: 0
+  names: 1
   speed: 2000
   checkpoint: {fileID: 1758507506}
   firepoint: {fileID: 1806049292}
@@ -207,18 +207,22 @@ MonoBehaviour:
   - {fileID: 156470112213249802, guid: 8ff5e097bf45e46468dc2c710339fe83, type: 3}
   - {fileID: 9109355652009346159, guid: 560c91d6285a9ce41a0d7ee35f5acec7, type: 3}
   selectedBullet: {fileID: 0}
-  ship: {fileID: 37421140}
-  robColour:
+  ship: {fileID: 37421145}
+  bobColour:
   - {fileID: 2100000, guid: 9dc74f0ca5de04c43a429ede8bd29a42, type: 2}
   - {fileID: 2100000, guid: 6edbf735fdad0914b8f94b848c3e47e9, type: 2}
   - {fileID: 2100000, guid: b15c81840e0afde4da10fea97e6df05c, type: 2}
   - {fileID: 2100000, guid: da5661536a87ef3418776b9b1203f142, type: 2}
-  bobColour:
+  robColour:
   - {fileID: 2100000, guid: 9dc74f0ca5de04c43a429ede8bd29a42, type: 2}
   - {fileID: 2100000, guid: 6edbf735fdad0914b8f94b848c3e47e9, type: 2}
   - {fileID: 2100000, guid: aa0a86833ffb9434084a0dcaf9caab4a, type: 2}
   - {fileID: 2100000, guid: 4aeb4f9daf524ac4ead73a080ff83792, type: 2}
-  gobColour: []
+  gobColour:
+  - {fileID: 2100000, guid: 9dc74f0ca5de04c43a429ede8bd29a42, type: 2}
+  - {fileID: 2100000, guid: 6edbf735fdad0914b8f94b848c3e47e9, type: 2}
+  - {fileID: 2100000, guid: d8a257c4a51f4a7439cf0e7723a86cd5, type: 2}
+  - {fileID: 2100000, guid: 8218ed795a9f5bb4db179b33eeec8afa, type: 2}
 --- !u!65 &32309032
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -267,6 +271,11 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 4534dec104be08e418b20ba5844a0390, type: 3}
+--- !u!23 &37421145 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 2300000, guid: 4534dec104be08e418b20ba5844a0390, type: 3}
+  m_PrefabInstance: {fileID: 1223071897}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &77645167
 GameObject:
   m_ObjectHideFlags: 0
@@ -2314,6 +2323,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 4534dec104be08e418b20ba5844a0390, type: 3}
       propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2300000, guid: 4534dec104be08e418b20ba5844a0390, type: 3}
+      propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2300000, guid: 4534dec104be08e418b20ba5844a0390, type: 3}

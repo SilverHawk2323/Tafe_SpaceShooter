@@ -35,9 +35,9 @@ public class Player : MonoBehaviour
     public GameObject selectedBullet;
     private int bombAmmo;
     private int maxBombAmmo = 3;
-    [SerializeField] private GameObject ship;
-    public Material[] robColour;
+    [SerializeField] private MeshRenderer ship;
     public Material[] bobColour;
+    public Material[] robColour;
     public Material[] gobColour;
 
 
@@ -144,7 +144,7 @@ public class Player : MonoBehaviour
 
     private void SwitchBullets()
     {
-        ChangeShipColour();
+        
         switch (names)
         {
             case Character.Rob:
@@ -170,6 +170,7 @@ public class Player : MonoBehaviour
                 Debug.LogWarning("Couldn't Find Bullet");
                 break;
         }
+        ChangeShipColour();
     }
 
     public void ChangeShipColour()
@@ -179,20 +180,22 @@ public class Player : MonoBehaviour
             case Character.Rob:
                 for(int i = 0; i < 4; i++)
                 {
-                    
-                    ship.GetComponent<MeshRenderer>().materials[i] = robColour[i];
-                    
+                    Debug.Log("Changed Colour");
+                    ship.materials[i].color = robColour[i].color;
                 }
                 Debug.Log("ROB'S COLOUR");
                 break;
-
-
-                
-            
+            case Character.Gob:
+                for (int i = 0; i < 4; i++)
+                {
+                    Debug.Log("Changed Colour");
+                    ship.materials[i].color = gobColour[i].color;
+                }
+                break;
             default:
                 for (int i = 0; i < 4; i++)
                 {
-                    ship.GetComponent<MeshRenderer>().materials[i] = bobColour[i];
+                    ship.materials[i].color = bobColour[i].color;
                 }
                 Debug.Log("NORMAL COLOUR");
                 break;

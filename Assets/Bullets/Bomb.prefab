@@ -119,7 +119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63a20f78eac15464a8eacbeb24429899, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 100
+  speed: 2000
   explosion: {fileID: 100012, guid: a905d8e5159ffeb46baa8d2a7624717f, type: 3}
   player: {fileID: 0}
   radiusCast: 5
