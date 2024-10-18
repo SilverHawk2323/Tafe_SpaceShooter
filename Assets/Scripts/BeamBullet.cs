@@ -26,9 +26,10 @@ public class BeamBullet : Bullet
     private void Update()
     {
         currentOverheat += Time.deltaTime;
-        GameManager.gm.laserheatUI();
+        GameManager.gm.LaserheatUI();
         if (currentOverheat >= overheatMax)
         {
+            GameManager.gm.laserAmmo.GetComponent<Slider>().value = 6f;
             Destroy(gameObject);
         }
 

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using UnityEditor;
 using UnityEngine;
 
 /* different characters to avoid different asteroids
@@ -32,9 +33,13 @@ public class Player : MonoBehaviour
     public Transform firepoint;
     public GameObject[] bullets;
     public GameObject selectedBullet;
-    public Renderer ship;
     private int bombAmmo;
     private int maxBombAmmo = 3;
+    [SerializeField] private GameObject ship;
+    public Material[] robColour;
+    public Material[] bobColour;
+    public Material[] gobColour;
+
 
     private void Awake()
     {
@@ -47,7 +52,6 @@ public class Player : MonoBehaviour
         names = Character.Rob;
         SwitchBullets();
         GameManager.gm.SetPlayerRef(this);
-        ship = this.GetComponentInChildren<Renderer>();
         bombAmmo = maxBombAmmo;
     }
     
@@ -121,6 +125,7 @@ public class Player : MonoBehaviour
         Instantiate(selectedBullet, firepoint.position, Quaternion.identity);
         if (selectedBullet == bullets[1])
         {
+            GameManager.gm.BombAmmo();
             bombAmmo -= 1;
         }
     }
@@ -139,23 +144,57 @@ public class Player : MonoBehaviour
 
     private void SwitchBullets()
     {
+        ChangeShipColour();
         switch (names)
         {
             case Character.Rob:
                 selectedBullet = bullets[0];
                 GameManager.gm.laserAmmo.SetActive(false);
+                GameManager.gm.bombAmmoUI.SetActive(false);
                 break;
             case Character.Bob:
                 selectedBullet = bullets[1];
                 GameManager.gm.laserAmmo.SetActive(false);
+                GameManager.gm.bombAmmoUI.SetActive(true);
+                GameManager.gm.RefreshBombAmmo();
+                GameManager.gm.bAmmo = 0;
                 bombAmmo = maxBombAmmo;
+                Debug.Log(bombAmmo.ToString());
                 break;
             case Character.Gob:
                 selectedBullet = bullets[2];
                 GameManager.gm.laserAmmo.SetActive(true);
+                GameManager.gm.bombAmmoUI.SetActive(false);
                 break;
             default:
                 Debug.LogWarning("Couldn't Find Bullet");
+                break;
+        }
+    }
+
+    public void ChangeShipColour()
+    {
+        switch (names)
+        {
+            case Character.Rob:
+                for(int i = 0; i < 4; i++)
+                {
+                    
+                    ship.GetComponent<MeshRenderer>().materials[i] = robColour[i];
+                    
+                }
+                Debug.Log("ROB'S COLOUR");
+                break;
+
+
+                
+            
+            default:
+                for (int i = 0; i < 4; i++)
+                {
+                    ship.GetComponent<MeshRenderer>().materials[i] = bobColour[i];
+                }
+                Debug.Log("NORMAL COLOUR");
                 break;
         }
     }

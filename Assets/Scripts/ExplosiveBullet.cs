@@ -24,6 +24,7 @@ public class ExplosiveBullet : Bullet
         Destroy(vfx, 4f);
         //Gets all the asteroids caught in the explosion
         collision = Physics.OverlapSphere(transform.position, radiusCast, layermask);
+        
 
         //goes through all the asteroids in the array and destroys them
         foreach(Collider c in collision)

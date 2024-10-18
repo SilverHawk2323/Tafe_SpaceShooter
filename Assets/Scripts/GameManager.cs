@@ -18,6 +18,10 @@ public class GameManager : MonoBehaviour
     public bool playing;
     public int lives;
     public GameObject astriod;
+    public GameObject[] bombAmmo;
+    public GameObject bombAmmoUI;
+
+    public int bAmmo =0;
         
     // Start is called before the first frame update
     void Awake()
@@ -66,10 +70,25 @@ public class GameManager : MonoBehaviour
 
     }
 
-    public void laserheatUI()
+    public void LaserheatUI()
     {
         laserAmmo.GetComponent<Slider>().value -= Time.deltaTime;
     }
+
+    public void BombAmmo()
+    {
+        bombAmmo[bAmmo].SetActive(false);
+        bAmmo += 1;
+    }
+
+    public void RefreshBombAmmo()
+    {
+        for (int i = 0; i < bombAmmo.Length; i++)
+        {
+            bombAmmo[i].SetActive(true);
+        }
+    }
+
 
     public void RefreshLives()
     {
