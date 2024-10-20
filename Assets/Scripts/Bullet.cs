@@ -37,8 +37,7 @@ public abstract class Bullet : MonoBehaviour
     public abstract void Hit(Collision other);
     public void OnCollisionEnter(Collision collision)
     {
-       
-        //Destroy(collision.gameObject);
+        GameManager.gm.UpdateScore(collision.gameObject.GetComponent<Astroid>().value);
         Hit(collision);
     }
     

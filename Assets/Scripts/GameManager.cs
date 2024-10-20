@@ -10,6 +10,8 @@ public class GameManager : MonoBehaviour
 {
     public Text timerText;
     public Text livesText;
+    public Text scoreText;
+    public int score;
     public float timer;
     public GameObject gameOverScreen;
     public Player player;
@@ -32,6 +34,8 @@ public class GameManager : MonoBehaviour
         playing = true;
         lives = 3;
         RefreshLives();
+        score = 0;
+        scoreText.text = "Score: " + score.ToString();
     }
 
     // Update is called once per frame
@@ -89,6 +93,11 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void UpdateScore(int scoreToAdd)
+    {
+        score += scoreToAdd;
+        scoreText.text = "Score:" + score.ToString();
+    }
 
     public void RefreshLives()
     {

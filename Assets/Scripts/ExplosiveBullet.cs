@@ -29,6 +29,7 @@ public class ExplosiveBullet : Bullet
         //goes through all the asteroids in the array and destroys them
         foreach(Collider c in collision)
         {
+            GameManager.gm.UpdateScore(c.gameObject.GetComponent<Astroid>().value/2);
             Destroy(c.gameObject);
         }
         Destroy(gameObject);

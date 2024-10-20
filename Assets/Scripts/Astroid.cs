@@ -11,7 +11,9 @@ public class Astroid : MonoBehaviour
     private Material[] asteroidMaterials;
     public float dissolveRate = 0.0125f;
     public float refreshRate = 0.025f;
-    Rigidbody rb;
+    private Rigidbody rb;
+    [Tooltip("How much score should the asteroid be worth")]
+    public int value = 10;
     // Start is called before the first frame update
     void Start()
     {
@@ -54,10 +56,10 @@ public class Astroid : MonoBehaviour
 
     public void Reset()
     {
-
         Destroy(gameObject);
     }
 
+    //The dissolve effect
     public IEnumerator DissolveCo()
     {
         bool dissolveEffectRunning = false;

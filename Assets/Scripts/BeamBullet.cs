@@ -19,6 +19,8 @@ public class BeamBullet : Bullet
     public override void Hit(Collision other)
     {
         GameObject vfx = Instantiate(explosion, other.transform.position, Quaternion.identity);
+        GameManager.gm.UpdateScore(other.gameObject.GetComponent<Astroid>().value * 2);
+        vfx.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
         Destroy(vfx, 3f);
         Destroy(other.gameObject);
     }

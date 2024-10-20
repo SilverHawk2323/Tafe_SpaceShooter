@@ -6,11 +6,14 @@ using UnityEngine.SceneManagement;
 
 public class DeathScreen : MonoBehaviour
 {
-    public Text scoreText;
+    public Text deathText;
 
     void OnEnable()
     {
-        scoreText.text = "You survived for " + GameManager.gm.timer.ToString() + " seconds";
+        //A local float variable is created to store the timer but rounded up otherwise the timer will have too many decimals
+        float localTimer;
+        localTimer = Mathf.Round(GameManager.gm.timer * 100) / 100;
+        deathText.text = "Your score was:" + "\n" + GameManager.gm.score + "\nNice Work!!!" + "\nYou survived for " + localTimer.ToString() + " seconds";
 
     }
 
