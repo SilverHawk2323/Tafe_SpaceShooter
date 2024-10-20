@@ -10,6 +10,7 @@ public class PlasmaBullet : Bullet
         rb = GetComponent<Rigidbody>();
         player = GameManager.gm.GetPlayerRef();
         transform.rotation = Quaternion.Euler(90f, 0f, 0f);
+        audioManager.PlaySFX(audioManager.plasma);
     }
 
     private void Update()

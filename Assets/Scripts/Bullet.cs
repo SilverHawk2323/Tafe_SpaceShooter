@@ -21,6 +21,12 @@ public abstract class Bullet : MonoBehaviour
     [SerializeField] protected GameObject explosion;
     protected Rigidbody rb;
     public Player player;
+    public AudioManager audioManager;
+
+    public void Awake()
+    {
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+    }
 
     public void Start()
     {

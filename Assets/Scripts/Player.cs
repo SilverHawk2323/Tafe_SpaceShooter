@@ -39,11 +39,12 @@ public class Player : MonoBehaviour
     public Material[] bobColour;
     public Material[] robColour;
     public Material[] gobColour;
+    private AudioManager audioManager;
 
 
     private void Awake()
     {
-        
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
     }
     // Start is called before the first frame update
     void Start()
@@ -111,6 +112,7 @@ public class Player : MonoBehaviour
     {
         if(collision.transform.tag == "Asteroids")
         {
+            audioManager.PlaySFX(audioManager.death);
             Death(collision);
         }
         

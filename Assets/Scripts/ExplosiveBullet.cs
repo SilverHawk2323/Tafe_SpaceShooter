@@ -15,6 +15,8 @@ public class ExplosiveBullet : Bullet
     public override void Hit(Collision other)
     {
         Debug.Log("Hit" + other.gameObject);
+        //play sound effect
+        audioManager.PlaySFX(audioManager.bomb);
         //An array for the asteroids caught in the explosion
         Collider[] collision;
         //spawns the VFX explosion

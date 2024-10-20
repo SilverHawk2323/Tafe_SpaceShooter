@@ -14,6 +14,7 @@ public class BeamBullet : Bullet
         transform.rotation = Quaternion.Euler(-90f, 0f, 0f);
         transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z + 3.8f);
         player = GameManager.gm.GetPlayerRef();
+        audioManager.PlaySFX(audioManager.laser);
     }
 
     public override void Hit(Collision other)

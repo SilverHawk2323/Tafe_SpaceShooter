@@ -3724,7 +3724,7 @@ GameObject:
   - component: {fileID: 2053741786}
   m_Layer: 0
   m_Name: AudioManager
-  m_TagString: Untagged
+  m_TagString: Audio
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3746,8 +3746,8 @@ MonoBehaviour:
   background: {fileID: 8300000, guid: 5068ae8a8e2e2f04db225931f9b6eb02, type: 3}
   death: {fileID: 8300000, guid: 47f0b5739725b444db11f258427882d2, type: 3}
   plasma: {fileID: 8300000, guid: 70c97e425596b8142b7b9163256c0868, type: 3}
-  laser: {fileID: 0}
-  bomb: {fileID: 0}
+  laser: {fileID: 8300000, guid: 7f4aa26d5b55226409cda231ffaf869b, type: 3}
+  bomb: {fileID: 8300000, guid: f9eb44b85c96be5429737d4dcadbfa3b, type: 3}
 --- !u!4 &2053741787
 Transform:
   m_ObjectHideFlags: 0

@@ -60,6 +60,8 @@ public class GameManager : MonoBehaviour
 
         if (lives == 0 )
         {
+            laserAmmo.SetActive(false);
+            bombAmmoUI.SetActive(false);
             playing = false;
             gameOverScreen.SetActive(true);
             //SceneManager.LoadScene(0);

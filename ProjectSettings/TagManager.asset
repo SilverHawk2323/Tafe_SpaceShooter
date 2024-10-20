@@ -9,6 +9,7 @@ TagManager:
   - Asteroid Rob
   - Asteroid Bob
   - Asteroid Gob
+  - Audio
   layers:
   - Default
   - TransparentFX
