@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class BeamBullet : Bullet
 {
-    private float overheatMax = 6f;
+    private float overheatMax = 4f;
     public float currentOverheat;
 
     public void Start()
@@ -32,7 +32,7 @@ public class BeamBullet : Bullet
         GameManager.gm.LaserheatUI();
         if (currentOverheat >= overheatMax)
         {
-            GameManager.gm.laserAmmo.GetComponent<Slider>().value = 6f;
+            GameManager.gm.laserAmmo.GetComponent<Slider>().value = 4f;
             Destroy(gameObject);
         }
 
@@ -43,7 +43,7 @@ public class BeamBullet : Bullet
         if (Input.GetButtonUp("Shoot"))
         {
             Debug.Log("Destroy Laser");
-            GameManager.gm.laserAmmo.GetComponent<Slider>().value = 6f;
+            GameManager.gm.laserAmmo.GetComponent<Slider>().value = 4f;
             Destroy(gameObject);
         }
     }

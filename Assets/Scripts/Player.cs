@@ -40,6 +40,7 @@ public class Player : MonoBehaviour
     public Material[] robColour;
     public Material[] gobColour;
     private AudioManager audioManager;
+    public GameObject pauseMenu;
 
 
     private void Awake()
@@ -64,8 +65,26 @@ public class Player : MonoBehaviour
             return;
         }
         Vector3 vel;
-        
-        if (Input.GetKeyDown(KeyCode.Q))
+
+        if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.P))
+        {
+            if (Time.timeScale > 0f)
+            {
+                pauseMenu.SetActive(true);
+                Time.timeScale = 0f;
+            }
+            else
+            {
+                pauseMenu.SetActive(false);
+                Time.timeScale = 1f;
+            }
+        }
+        if (Time.timeScale < 1f)
+        {
+            return;
+        }
+
+            if (Input.GetKeyDown(KeyCode.Q))
         {
             if (names == Character.Gob)
             {
