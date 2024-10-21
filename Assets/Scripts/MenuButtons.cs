@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MenuButtons : MonoBehaviour
 {
@@ -16,6 +17,11 @@ public class MenuButtons : MonoBehaviour
     {
         controlsMenu.SetActive(true);
         menu.SetActive(false);
+    }
+
+    public void BeginPlay()
+    {
+        SceneManager.LoadScene("SampleScene");
     }
 
     public void Back()
