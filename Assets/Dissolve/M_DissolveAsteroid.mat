@@ -112,8 +112,8 @@ Material:
     - _Cull: 2
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 0.5
-    - _DissolveAmount: 0.33
-    - _DissolveScale: 40
+    - _DissolveAmount: 0.62
+    - _DissolveScale: 50
     - _DissolveWidth: 0.03
     - _DstBlend: 0
     - _EmissionScaleUI: 0
